@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Zus1\LaravelAuth\Constant\RouteName;
 
-Route::prefix('auth')->group(function () {
+Route::prefix('api/auth')->group(function () {
     Route::get('verify', \Zus1\LaravelAuth\Controllers\Verify::class)
         ->name(RouteName::VERIFY_USER);
     Route::post('/reset-password-send', \Zus1\LaravelAuth\Controllers\ResetPasswordSend::class)
