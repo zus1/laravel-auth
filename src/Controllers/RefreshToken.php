@@ -4,7 +4,7 @@ namespace Zus1\LaravelAuth\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Zus1\LaravelAuth\Constant\TokenType;
+use Zus1\LaravelAuth\Constant\Token\TokenType;
 use Zus1\LaravelAuth\Dto\RefreshTokenResponseDto;
 use Zus1\LaravelAuth\Events\TokenRefreshedEvent;
 use Zus1\LaravelAuth\Repository\TokenRepository;

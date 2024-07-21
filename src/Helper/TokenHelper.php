@@ -2,8 +2,6 @@
 
 namespace Zus1\LaravelAuth\Helper;
 
-use Zus1\LaravelAuth\Constant\TokenType;
-
 class TokenHelper
 {
     private const SYMBOLS = '123456789abcdefgABCDEFG';
@@ -16,5 +14,13 @@ class TokenHelper
         }
 
         return $token;
+    }
+
+    public function getCode(int $length): int
+    {
+        $min = (int) ('1'.str_repeat('0', $length -1));
+        $max = (int) str_repeat('9', $length);
+
+        return random_int($min, $max);
     }
 }

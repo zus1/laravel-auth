@@ -1,6 +1,6 @@
 <?php
 
-use Zus1\LaravelAuth\Constant\TokenType;
+use Zus1\LaravelAuth\Constant\Token\TokenType;
 
 return [
     'user_namespace' => env('LARAVEL_AUTH_USER_NAMESPACE', 'App\Models'),

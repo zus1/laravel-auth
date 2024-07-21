@@ -2,14 +2,14 @@
 
 namespace Zus1\LaravelAuth\Repository;
 
-use Illuminate\Database\Eloquent\Model;
-use Zus1\LaravelAuth\Constant\TokenType;
-use Zus1\LaravelAuth\Helper\TokenHelper;
-use Zus1\LaravelAuth\Models\Token;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\JoinClause;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Zus1\LaravelAuth\Constant\Token\TokenType;
+use Zus1\LaravelAuth\Helper\TokenHelper;
+use Zus1\LaravelAuth\Models\Token;
 
 class TokenRepository
 {
@@ -24,9 +24,10 @@ class TokenRepository
     {
         /** @var TokenType $tokenTypeClass */
         $tokenTypeClass = (string) config('laravel-auth.token.type_class');
+        $action = $tokenTypeClass::action($type);
 
         $token = new Token();
-        $token->token = $this->tokenHelper->getToken($tokenTypeClass::length($type));
+        $token->token = $this->tokenHelper->$action($tokenTypeClass::length($type));
         $token->created_at = Carbon::now()->format('Y-m-d  H:i:s');
         $token->expires_at = $tokenTypeClass::expiresAt($type, Carbon::now());
         $token->type = $type;

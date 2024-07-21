@@ -3,7 +3,7 @@
 namespace Zus1\LaravelAuth\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use Zus1\LaravelAuth\Constant\TokenType;
+use Zus1\LaravelAuth\Constant\Token\TokenType;
 use Zus1\LaravelAuth\Events\PasswordResetSentEvent;
 use Zus1\LaravelAuth\Mail\ResetPasswordEmail;
 use Zus1\LaravelAuth\Mail\Send;

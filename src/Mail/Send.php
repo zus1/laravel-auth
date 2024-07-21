@@ -3,8 +3,8 @@
 namespace Zus1\LaravelAuth\Mail;
 
 use Illuminate\Database\Eloquent\Model;
-use Zus1\LaravelAuth\Constant\TokenType;
 use Illuminate\Support\Facades\Mail;
+use Zus1\LaravelAuth\Constant\Token\TokenType;
 use Zus1\LaravelAuth\Repository\TokenRepository;
 use Zus1\LaravelAuth\Repository\UserRepository;
 

@@ -1,10 +1,11 @@
 <?php
 
 
-namespace Zus1\LaravelAuth\Constant;
+namespace Zus1\LaravelAuth\Constant\Token;
 
 use Carbon\Carbon;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use function Zus1\LaravelAuth\Constant\config;
 
 class TokenType
 {
@@ -37,6 +38,17 @@ class TokenType
         };
     }
 
+    public static function action(string $type): string
+    {
+        return match ($type) {
+            self::USER_VERIFICATION,
+            self::USER_RESET_PASSWORD,
+            self::ACCESS,
+            self::REFRESH => TokenAction::TOKEN,
+            default => self::customAction(),
+        };
+    }
+
     protected static function customExpiresAt(Carbon $createdAt): Carbon
     {
         throw new HttpException(500, 'Unknown token type');
@@ -45,5 +57,10 @@ class TokenType
     protected static function customLength(): int
     {
         throw new HttpException(500, 'Unknown token length');
+    }
+
+    protected static function customAction(): string
+    {
+        return 'getToken';
     }
 }

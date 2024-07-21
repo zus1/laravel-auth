@@ -2,14 +2,14 @@
 
 namespace Zus1\LaravelAuth\Controllers;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\Model;
-use Zus1\LaravelAuth\Constant\TokenType;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
+use Zus1\LaravelAuth\Constant\Token\TokenType;
 use Zus1\LaravelAuth\Dto\AuthenticationResponseDto;
 use Zus1\LaravelAuth\Events\LoggedInEvent;
 use Zus1\LaravelAuth\Repository\TokenRepository;
-use Illuminate\Auth\AuthenticationException;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Auth;
 use Zus1\LaravelAuth\Request\LoginRequest;
 
 class Login

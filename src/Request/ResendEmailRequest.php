@@ -4,7 +4,7 @@ namespace Zus1\LaravelAuth\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Zus1\LaravelAuth\Constant\TokenType;
+use Zus1\LaravelAuth\Constant\Token\TokenType;
 
 class ResendEmailRequest extends BaseRequest
 {
