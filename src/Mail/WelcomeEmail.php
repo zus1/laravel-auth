@@ -35,8 +35,8 @@ class WelcomeEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            text: 'mail.authentication.welcome-txt',
-            markdown: 'mail.authentication.welcome',
+            text: config('laravel-auth.email.templates.welcome.txt'),
+            markdown: config('laravel-auth.email.templates.welcome.markdown'),
             with: [
                 'url' => URL::route(RouteName::LOGIN_FORM),
                 'name' => sprintf(

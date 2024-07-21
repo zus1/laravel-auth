@@ -5,7 +5,7 @@ use Zus1\LaravelAuth\Constant\TokenType;
 return [
     'user_namespace' => env('LARAVEL_AUTH_USER_NAMESPACE', 'App\Models'),
     'user_class' => sprintf(
-        '%s\\%s::class',
+        '%s\\%s',
         env('LARAVEL_AUTH_USER_NAMESPACE', 'App\Models'),
         env('LARAVEL_AUTH_USER_CLASS', 'User')
     ),
@@ -31,6 +31,20 @@ return [
             'verification' => 'Email verification',
             'reset_password' => 'Reset Password',
             'welcome' => 'Welcome'
+        ],
+        'templates' => [
+            'verification' => [
+                'txt' => 'mail/authentication::verify-txt',
+                'markdown' => 'mail/authentication::verify'
+            ],
+            'reset_password' => [
+                'txt' => 'mail/authentication::reset-password-txt',
+                'markdown' => 'mail/authentication::reset-password'
+            ],
+            'welcome' => [
+                'txt' => 'mail/authentication::welcome-txt',
+                'markdown' => 'mail/authentication::welcome'
+            ]
         ],
     ],
 

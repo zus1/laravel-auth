@@ -8,6 +8,7 @@ trait Token
 {
     public function tokens(): ?HasMany
     {
-        return method_exists($this, 'hasMany') ?  $this->hasMany(\Zus1\LaravelAuth\Models\Token::class) : null;
+        return method_exists($this, 'hasMany') ?
+            $this->hasMany(\Zus1\LaravelAuth\Models\Token::class, 'user_id', 'id') : null;
     }
 }

@@ -30,9 +30,9 @@ class TokenType
     {
         return match ($type) {
             self::USER_VERIFICATION => config('laravel-auth.token.length.user_verification_token'),
-            self::USER_RESET_PASSWORD => config('laravel-auth.token.length.user_verification_token'),
-            self::ACCESS => config('laravel-auth.token.length.user_verification_token'),
-            self::REFRESH => config('laravel-auth.token.length.user_verification_token'),
+            self::USER_RESET_PASSWORD => config('laravel-auth.token.length.reset_password_token'),
+            self::ACCESS => config('laravel-auth.token.length.access_token'),
+            self::REFRESH => config('laravel-auth.token.length.refresh_token'),
             default => static::customLength(),
         };
     }

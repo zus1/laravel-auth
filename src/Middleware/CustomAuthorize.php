@@ -2,6 +2,7 @@
 
 namespace Zus1\LaravelAuth\Middleware;
 
+use Closure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;

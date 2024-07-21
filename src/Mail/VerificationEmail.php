@@ -37,8 +37,8 @@ class VerificationEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            text: 'mail.authentication.verify-txt',
-            markdown: 'mail.authentication.verify',
+            text: config('laravel-auth.email.templates.verification.txt'),
+            markdown: config('laravel-auth.email.templates.verification.markdown'),
             with: [
                 'url' => URL::route(RouteName::VERIFY_USER, ['token' => $this->token->token]),
                 'first_name' => $this->user->getAttribute('first_name') ?? '',

@@ -37,8 +37,8 @@ class ResetPasswordEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            text: 'mail.authentication.reset-password-txt',
-            markdown: 'mail.authentication.reset-password',
+            text: config('laravel-auth.email.templates.reset_password.txt'),
+            markdown: config('laravel-auth.email.templates.reset_password.markdown'),
             with: [
                 'url' => URL::route(RouteName::RESET_PASSWORD, ['token' => $this->token->token]),
                 'first_name' => $this->user->getAttribute('first_name') ?? '',

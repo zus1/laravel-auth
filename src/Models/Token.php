@@ -29,6 +29,6 @@ class Token extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(config('laravel-auth.user_class'));
+        return $this->belongsTo(config('laravel-auth.user_class'), 'user_id', 'id');
     }
 }

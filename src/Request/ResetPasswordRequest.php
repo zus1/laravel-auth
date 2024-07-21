@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 use Zus1\LaravelAuth\Constant\RouteName;
 
-class ResetPasswordRequest extends FormRequest
+class ResetPasswordRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class ResetPasswordRequest extends FormRequest
     {
         if($this->route()->action['as'] === RouteName::RESET_PASSWORD_SEND) {
             return [
-                'email' => 'email|exists:users,email',
+                'email' => $this->getEmailRules(),
             ];
         }
         if($this->route()->action['as'] === RouteName::RESET_PASSWORD) {

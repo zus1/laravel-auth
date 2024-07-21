@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Zus1\LaravelAuth\Constant\TokenType;
 
-class ResendEmailRequest extends FormRequest
+class ResendEmailRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class ResendEmailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|exists:users',
+            'email' => $this->getEmailRules(),
             'type' => [
                 'required',
                 Rule::in(TokenType::USER_RESET_PASSWORD, TokenType::USER_VERIFICATION),

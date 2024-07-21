@@ -12,7 +12,7 @@ Route::prefix('api/auth')->group(function () {
         ->name(RouteName::RESET_PASSWORD);
     Route::post('/login', \Zus1\LaravelAuth\Controllers\Login::class)
         ->name(RouteName::LOGIN);
-    Route::get('/logout', \Zus1\LaravelAuth\Controllers\Logout::class)
+    Route::put('/logout', \Zus1\LaravelAuth\Controllers\Logout::class)
         ->name(RouteName::LOGOUT);
     Route::get('/refresh-token', \Zus1\LaravelAuth\Controllers\RefreshToken::class)
         ->name(RouteName::REFRESH_TOKEN);

@@ -3,9 +3,15 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Zus1\LaravelAuth\Helper\UserHelper;
 
 return new class extends Migration
 {
+    public function __construct(
+        private UserHelper $userHelper
+    ){
+    }
+
     /**
      * Run the migrations.
      */
@@ -19,7 +25,7 @@ return new class extends Migration
             $table->string('type');
             $table->tinyInteger('active')->default(1);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('user_id')->references('id')->on($this->userHelper->getUserTable())->cascadeOnDelete();
         });
     }
 
