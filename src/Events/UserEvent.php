@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 abstract class UserEvent
 {
     public function __construct(
-        private Model $user,
+        protected Model $user,
     ){
     }
 
